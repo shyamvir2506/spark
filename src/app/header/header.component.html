@@ -1,0 +1,20 @@
+<div class="mat-elevation-z2 header" (keypress)="keyPressHandler($event)">
+    <div class="left-panel">
+        <div class="search-bar">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+            <input type="text" (change)="searchChange($event)">
+        </div>
+        
+        <button mat-button (click)="searchClkHandler()">Go</button>
+        <button mat-raised-button color="primary" (click)="searchAllUnits()">All units</button>
+        <div *ngIf="searchResult<=0"> no unit of this name found</div>
+    </div>
+
+    <div class="right-panel">
+        <div class="btn upload-btn" [ngClass]="disableUploadBtn ? 'disable-btn' : ''">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">file_upload</mat-icon>
+            {{fileStatus}}
+        </div>
+        <input class="btn" (change)="fileChange($event)" type="file" placeholder="File">
+    </div>
+</div>

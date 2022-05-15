@@ -1,0 +1,41 @@
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 99vh;
+    
+    min-width: 160px;
+    width: 190px;
+    border-right: 1px solid black;
+    background: rgb(249, 249, 249);
+}
+
+.header {
+    height: 80px;
+    color:rgb(22, 22, 22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.logo-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.logo-img{
+    width:160px;
+}
+
+.logo-name{
+    font-size: 20px;
+    font-weight: bold;
+}

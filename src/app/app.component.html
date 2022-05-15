@@ -1,0 +1,15 @@
+<div class="main-container">
+  <app-left-panel *ngIf="units.length==0" [dataList]="dataList" [logo]="unitLogo" [serverPath]="this.serverPath"
+          [campaignName] = "campaignName" (ProductClicked)='productSelected($event)'></app-left-panel>
+  
+  <div *ngIf="this.dataList.length>=1" class="unit-holder">
+      <app-main #main *ngIf="units.length==0" class="center-panel" [serverPath]="this.serverPath"
+           [campaignName]="campaignName" [win]="this.win"></app-main>
+  </div>
+
+  <div *ngIf="this.dataList.length===0" class="no-unit-holder">
+    <div class="no-unit">
+      no unit found
+    </div>
+  </div>
+</div>

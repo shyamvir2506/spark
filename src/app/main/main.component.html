@@ -1,0 +1,56 @@
+<div class='bg-img-holder'>
+    <img *ngIf='data!==undefined' src="{{serverPath}}/unitBg/{{data.type}}/{{data.size}}.jpg" class="bg-image">
+</div>
+
+<div #mainContainer>
+    <div #leftNav class="left-nav-holder" (click)="naviHandler(-1)"> </div>
+
+    <div class="unit-holder" *ngIf="data!=null" 
+        [style.width.px]="data.type=='desktop expandable'?970:data.size.split('x')[0]" 
+        [style.height.px]="data.type=='desktop expandable'?546:data.size.split('x')[1]">
+        <div #unitContainer class="unit" *ngFor="let obj of data.tabs; let tIndex=index;" [style.zIndex]="tIndex===tabIndex?'10':'0'">
+            <!--<div class="tab-holder" *ngIf="tIndex===tabIndex"-->
+            <div class="tab-holder" [style.opacity]="tIndex===tabIndex?'1':'0'" 
+                [style.width.px]="data.type=='desktop expandable'?970:data.size.split('x')[0]" 
+                [style.height.px]="data.type=='desktop expandable'?546:data.size.split('x')[1]">
+                <div class="unit-tab" *ngFor="let img of obj; let iIndex=index;">
+                    <!--<div *ngIf="iIndex===imgIndex">-->
+                    <div [style.opacity]="iIndex===imgIndex?'1':'0'">
+                        <img src="{{serverPath}}/units/{{campaignName}}/{{data.type}}/{{data.size}}/{{img}}" (load)="this.allImgLoder($event)">
+                    </div>
+                </div>
+                <div *ngIf="obj.length>1" class="gallery-nav-btn"
+                    [style.margin.top.px]="data.size.split('x')[0]=='160' && 530"
+                    [style.margin.left.px]="data.size.split('x')[0]=='160' && 35"
+                     (click)="galleryHandler(-1)"></div>
+                <div *ngIf="obj.length>1" class="gallery-nav-btn"
+                    [style.margin.top.px]="data.size.split('x')[0]=='160' && 530"
+                    [style.margin.right.px]="data.size.split('x')[0]=='160' && 50"
+                     (click)="galleryHandler(1)"></div>
+            </div>
+    
+            <div *ngIf="tIndex==0" class="video-container" [style.width.px]="this.videoCss.width" [style.height.px]="this.videoCss.height" 
+                [style.left.px]="this.videoCss.left" [style.top.px]="this.videoCss.top">
+                <div>
+                    <video #videoHolder width="100%" [style.height.px]="this.videoCss.height" controls>
+                        <source src="{{serverPath}}/units/{{campaignName}}/{{data.type}}/{{data.size}}/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2" #loader>
+            <div id="circle1"></div> 
+        </div>
+
+        <div class="copy-btn">
+            <div #copyBtn class="btn" ngxClipboard [cbContent]="this.win.location.href" (click)="copyHandler()">Copy Client Path</div>
+            <div *ngIf="this.showMsg" class="pop-up">
+                <label>demo link copy successfull</label>
+            </div>
+        </div>
+
+    </div>
+    <div #rightNav class="right-nav-holder" (click)="naviHandler(1)"></div>
+</div>

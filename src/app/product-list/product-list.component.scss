@@ -1,0 +1,14 @@
+.product-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-list > .product{
+
+}
+
+.product-list > .unit {
+    padding-left: 15px;
+    padding-top:5px;
+    cursor: pointer;
+}

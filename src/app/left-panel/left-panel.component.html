@@ -1,0 +1,17 @@
+<div class="left-panel">
+    <div>
+        <div class="header">
+            <img *ngIf="isImage(); else cname" [src]="serverPath+'/units/'+campaignName+'/'+logo" height="60">
+            <ng-template #cname>
+                <label class="logo-name">{{logo}}</label>
+            </ng-template>
+        </div>
+        <div *ngFor="let data of dataList" class="list">
+            <app-product-list [data]="data" (clicked)="onProductClick($event)"></app-product-list>
+        </div>
+    </div>
+
+    <div class="logo-holder">
+        <img [src]="serverPath+'/logo.svg'" class="logo-img">
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="product-list">
+    <div class="product" (click)="productClickHandler($event)">{{data.type}}</div>
+    <div *ngIf="data.type !== 'desktop expandable' && data.type !== 'mobile expandable'">
+        <div *ngFor="let unit of data.units" class="unit" [id]="data.type.replace(' ', '-')+'_'+unit.size" (click)="clickHandler($event)">
+            {{unit.size}}
+        </div>
+    </div>
+</div>

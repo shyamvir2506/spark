@@ -1,0 +1,60 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    min-height: 30px;
+    padding: 1%;
+}
+
+.header > .left-panel{
+    display: flex;
+}
+
+.header > .right-panel{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-bar-red{
+    border: solid red 2px;
+}
+
+.search-bar{
+    border: solid black 1px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar > input[type=text] {
+    border: none;
+}
+
+.search-bar > input[type=text]:focus {
+    border: none;
+}
+
+.right-panel > .btn{
+    position: absolute;
+    width: 100px;
+}
+
+.right-panel > input {
+    height: 35px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.right-panel > .upload-btn{
+    background:#3F51B5;
+    color:white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+.right-panel > .disable-btn{
+    background: grey;
+    color:white;
+}
